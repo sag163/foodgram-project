@@ -23,6 +23,7 @@ import debug_toolbar
 from django.contrib.flatpages import views
 from django.conf.urls import handler404, handler500
 
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("about/", include("django.contrib.flatpages.urls")),

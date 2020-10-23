@@ -32,7 +32,4 @@ urlpatterns = [
     ),
     path("<username>/", views.profile, name="profile"),
     path("<username>/<int:recipe_id>/", views.recipe_view, name="recipe"),
-    # path("<username>/follow/", views.profile_follow, name="profile_follow"),
-    # path("<username>/unfollow/", views.profile_unfollow, name="profile_unfollow"),
-    # path("<username>/unfollow/", views.profile_unfollow, name="profile_unfollow"),
 ]

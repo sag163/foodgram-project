@@ -7,10 +7,8 @@
 
 <link rel="stylesheet" href="{% static 'pages/index.css'%}">
 <body class="body">
-    
     <main class="main container">
-        
-        <div class="main__header">
+           <div class="main__header">
             <h1 class="main__title">{{ author.username }}</h1>
             <ul class="tags">
                 <li class="tags__item">
@@ -26,9 +24,7 @@
                     <label for="dinner" class="tags__label">Ужин</label>
                 </li>
             </ul>
-
         </div>
-
         <div class="author-subscribe" data-author="{{ author.id }}">
             {% if user.is_authenticated %}
             {% if author|follow:request.user %}
@@ -40,20 +36,14 @@
             {% endif %}
         {% endif %}
         </div>
-
-
         <div class="card-list" >
             {% for recipe in page %}
             {% include "recipe_item.html" %}
-        
-           
         {% endfor %}
-
     </div>
     {% include "paginator.html"%}
     </main>
 </body>
-
 
     {% block scripts %}
         <script src="{% static 'js/components/MainCards.js' %}"></script>

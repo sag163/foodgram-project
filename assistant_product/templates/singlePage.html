@@ -37,8 +37,6 @@
                 </div>
                 <ul class="single-card__items">
                     {% include "shop_list_button.html" %}
-
-                
                 {% if user.is_authenticated %}
                 {% if recipe.author|follow:user %}
                 <li class="single-card__item"><button class="button button_style_light-blue button_size_auto" name="subscribe">Отписаться от автора</button></li>
@@ -46,7 +44,6 @@
               <li class="single-card__item"><button class="button button_style_light-blue button_size_subscribe" name="subscribe" data-out>Подписаться на автора</button></li>
               {% endif %}
                 {% endif %}
-                
                 </ul>
                 <div class="single-card__section">
                     <h3 class="single-card__section-title">Ингридиенты:</h3>
@@ -59,7 +56,6 @@
                 <div class="single-card__section">
                     <h3 class="single-card__section-title">Описание:</h3>
                     <p class=" single-card__section-text">{{ recipe.description}}</p>
-                   
                 </div>
             </div>
         </div>
