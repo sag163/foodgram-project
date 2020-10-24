@@ -30,7 +30,6 @@ urlpatterns = [
     path("auth/", include("users.urls")),
     path("auth/", include("django.contrib.auth.urls")),
     path("ingredients/", additional_views.get_ingredients, name="ingredients"),
-    path("about_author/", views.flatpage, {"url": "/author/"}, name="author"),
     path("", include("recipe.urls")),
 ]
 

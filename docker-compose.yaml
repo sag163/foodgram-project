@@ -1,0 +1,43 @@
+version: '3.8'
+
+volumes:
+  postgres_data:
+  staticfiles:
+
+    version: '3.8'
+volumes:
+  postgres_data:
+  staticfiles:
+  mediafiles: 
+
+
+services:
+  db:
+    image: postgres:latest
+    restart: always
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    env_file:
+      - ./.env
+
+  web:
+    build: .
+    restart: always
+    command: gunicorn assistant_product.wsgi:application --bind 0.0.0.0:8000
+    volumes:
+      - staticfiles:/code/static/
+      - staticfiles:/code/media/
+    depends_on:
+      - db
+    env_file:
+      - ./.env
+
+  nginx:
+    build: ./nginx
+    volumes:
+      - staticfiles:/static
+      - mediafiles:/media
+    ports:
+      - "8000:80"
+    depends_on:
+      - web

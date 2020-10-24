@@ -1,0 +1,37 @@
+version: '3.8'
+
+volumes:
+  postgres_data:
+  staticfiles:
+
+services:
+  db:
+    image: postgres:latest
+    # не могу исправить, тесты требуют latest
+    restart: always
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    env_file:
+      - ./.env
+
+  web:
+    build: .
+    restart: always
+    command: gunicorn api_yamdb.wsgi:application --bind 0.0.0.0:8000
+    volumes:
+      - staticfiles:/code/static/
+      - staticfiles:/code/media/
+    depends_on:
+      - db
+    env_file:
+      - ./.env
+
+  nginx:
+    build: ./nginx
+    volumes:
+      - static:/static
+      - media:/media
+    ports:
+      - "8000:80"
+    depends_on:
+      - web
