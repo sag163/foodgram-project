@@ -46,7 +46,7 @@ jobs:
         port: 22
         script: |
           sudo docker pull 15021990163/foodgram-project
-          sudo docker stop $(docker ps -a -q)
+          sudo docker stop $(sudo docker ps -a -q)
           sudo docker run --rm -d -p 8080:8000 15021990163/foodgram-project
 
 

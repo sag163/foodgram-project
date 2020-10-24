@@ -33,7 +33,7 @@ services:
       - ./.env
 
   nginx:
-    build: ./nginx
+    image: nginx
     volumes:
       - staticfiles:/static
       - mediafiles:/media
