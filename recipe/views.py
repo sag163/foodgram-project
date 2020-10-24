@@ -7,7 +7,7 @@ from django.forms import inlineformset_factory
 from django.forms.formsets import formset_factory
 from .additional_views import *
 from django.db.models import Sum
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 
 
 def index(request):
@@ -189,7 +189,7 @@ def favorite_index(request):
         following_recipe__user__id=request.user.id
     ).all()
     if tags_values:
-        recipe_list = following_list.filter(tag__title__in=tags_values).distinct().all()
+        following_list = following_list.filter(tag__title__in=tags_values).distinct().all()
     paginator = Paginator(following_list, 6)
     page_number = request.GET.get("page")
     page = paginator.get_page(page_number)
