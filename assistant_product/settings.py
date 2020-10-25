@@ -26,7 +26,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "ud_^@=l9s+rdz_$d=y%9bn!nl9*ui)*^_$71v$d&4_shwh32q0"
+SECRET_KEY = os.environ.get("SECRET_KEY")
+
 # SECRET_KEY2 = env('SECRET_KEY')
 # print(SECRET_KEY)
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -107,7 +108,7 @@ WSGI_APPLICATION = "assistant_product.wsgi.application"
 #         "PORT": os.environ.get("DB_PORT"),
 #     }
 # }
-print(os.environ.get("DB_PORT"))
+
 
 DATABASES = {
     "default": {
