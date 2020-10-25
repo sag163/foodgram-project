@@ -32,7 +32,7 @@ ALLOWED_HOSTS = [
     "[::1]",
     "testserver",
     "*",
-    ]
+]
 
 INTERNAL_IPS = [
     "127.0.0.1",
