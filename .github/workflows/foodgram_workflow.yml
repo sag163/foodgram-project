@@ -42,7 +42,7 @@ jobs:
         host: 130.193.58.146
         username: sag163
         key: ${{ secrets.SSH_KEY }}
-        assphrase: ${{ secrets.PASSPHRASE }}
+        passphrase: ${{ secrets.PASSPHRASE }}
         port: 22
         script: |
           sudo docker pull 15021990163/foodgram-project

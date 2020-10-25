@@ -1,7 +1,9 @@
-from .models import *
-from django.http import JsonResponse
 import json
+
 from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
+
+from .models import Ingredients
 
 
 def get_ingredients(request):

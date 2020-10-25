@@ -18,7 +18,7 @@ services:
   web:
     build: .
     restart: always
-    command: gunicorn assistant_product.wsgi:application --bind 0.0.0.0:8000
+    command: gunicorn assistant_product.wsgi:application --bind 0.0.0.0:4000
     volumes:
       - staticfiles:/code/static/
       - staticfiles:/code/media/
@@ -28,14 +28,11 @@ services:
       - ./.env
 
   nginx:
-    build:
-      context: ./nginx
-      dockerfile: Dockerfile
-    restart: always
+    build: ./nginx
     volumes:
       - staticfiles:/static
       - mediafiles:/media
     ports:
-      - "8000:80"
+      - "4000:80"
     depends_on:
       - web

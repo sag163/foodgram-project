@@ -1,11 +1,16 @@
-from django.db import models
 from django.contrib.auth import get_user_model
-
+from django.db import models
 
 User = get_user_model()
 
 
 class Tags(models.Model):
+    tag_options = {
+        'breakfast': ['orange', 'Завтрак'],
+        'lunch': ['green', 'Обед'],
+        'dinner': ['purple', 'Ужин']
+        }    
+
     TAG_CHOICES = [
         ("breakfast", "Завтрак"),
         ("lunch", "Обед"),
@@ -18,19 +23,11 @@ class Tags(models.Model):
 
     @property
     def color(self):
-        if self.title == "breakfast":
-            return "orange"
-        if self.title == "lunch":
-            return "green"
-        return "purple"
+        return self.tag_options[self.title][0]
 
     @property
     def name(self):
-        if self.title == "breakfast":
-            return "Завтрак"
-        if self.title == "lunch":
-            return "Обед"
-        return "Ужин"
+        return self.tag_options[self.title][1]
 
 
 class Ingredients(models.Model):
@@ -49,7 +46,7 @@ class Recipe(models.Model):
     pub_date = models.DateTimeField("date published", auto_now_add=True)
     tag = models.ManyToManyField(Tags)
     ingredients = models.ManyToManyField(
-        Ingredients, through="Recipe_Ingre", through_fields=("recipe", "ingredients")
+        Ingredients, through="RecipeIngre", through_fields=("recipe", "ingredients")
     )
     time = models.CharField(max_length=45)
 
@@ -57,7 +54,7 @@ class Recipe(models.Model):
         return self.title
 
 
-class Recipe_Ingre(models.Model):
+class RecipeIngre(models.Model):
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
     ingredients = models.ForeignKey(Ingredients, on_delete=models.CASCADE)
     count = models.FloatField()

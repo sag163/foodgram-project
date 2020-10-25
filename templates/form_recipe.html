@@ -9,7 +9,7 @@
 {% load user_filters %}
 <link rel="stylesheet" href="{% static 'pages/form.css' %}">
     <div class="main__header">
-        <h1 class="main__title">Создание рецепта</h1>
+        <h1 class="main__title">{{head_form}}</h1>
     </div>
     <div class="form-container">
         <form class="form" method="post" enctype="multipart/form-data">
@@ -92,7 +92,7 @@
                 </div>
             </div>
             <div class="form__footer">
-                <button class="button button_style_blue">Создать рецепт</button>
+                <button class="button button_style_blue">{{text_btn_form}}</button>
             </div>
         </form>
     </div>

@@ -1,23 +1,20 @@
 from django.contrib import admin
-from .models import *
-from .forms import *
+
+from .models import (FollowRecipe, FollowUser, Ingredients, Recipe,
+                     RecipeIngre, ShoppingList, Tags, User)
 
 
-# class RecipeAdmin(admin.ModelAdmin):
-#    form = TagForm
-
-
-class Recipe_IngreInline(admin.TabularInline):
-    model = Recipe_Ingre
+class RecipeIngreInline(admin.TabularInline):
+    model = RecipeIngre
     extra = 1
 
 
 class RecipeAdmin(admin.ModelAdmin):
-    inlines = (Recipe_IngreInline,)
+    inlines = (RecipeIngreInline,)
 
 
 class IngredientsAdmin(admin.ModelAdmin):
-    inlines = (Recipe_IngreInline,)
+    inlines = (RecipeIngreInline,)
 
 
 class TagsAdmin(admin.ModelAdmin):
@@ -33,7 +30,7 @@ class TagsAdmin(admin.ModelAdmin):
 
 admin.site.register(Recipe, RecipeAdmin)
 admin.site.register(Tags, TagsAdmin)
-admin.site.register(Recipe_Ingre)
+admin.site.register(RecipeIngre)
 admin.site.register(Ingredients, IngredientsAdmin)
 admin.site.register(FollowUser)
 admin.site.register(FollowRecipe)

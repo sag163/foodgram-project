@@ -1,6 +1,7 @@
 from django import forms
-from .models import *
 from django.forms import ModelForm
+
+from .models import Recipe, RecipeIngre
 
 
 class RecipeForm(forms.ModelForm):
@@ -20,5 +21,5 @@ class RecipeForm(forms.ModelForm):
 
 class RecipeIngreeForm(forms.ModelForm):
     class Meta:
-        model = Recipe_Ingre
+        model = RecipeIngre
         fields = ("count",)
