@@ -28,7 +28,10 @@ services:
       - ./.env
 
   nginx:
-    image: nginx
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    restart: always
     volumes:
       - staticfiles:/static
       - mediafiles:/media
