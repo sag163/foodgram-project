@@ -6,10 +6,10 @@ User = get_user_model()
 
 class Tags(models.Model):
     tag_options = {
-        'breakfast': ['orange', 'Завтрак'],
-        'lunch': ['green', 'Обед'],
-        'dinner': ['purple', 'Ужин']
-        }    
+        "breakfast": ["orange", "Завтрак"],
+        "lunch": ["green", "Обед"],
+        "dinner": ["purple", "Ужин"],
+    }
 
     TAG_CHOICES = [
         ("breakfast", "Завтрак"),

@@ -8,8 +8,16 @@ from django.shortcuts import get_object_or_404, redirect, render
 
 from .additional_views import get_ingredients, get_ingredients_from_js
 from .forms import RecipeForm
-from .models import (FollowRecipe, FollowUser, Ingredients, Recipe,
-                     RecipeIngre, ShoppingList, Tags, User)
+from .models import (
+    FollowRecipe,
+    FollowUser,
+    Ingredients,
+    Recipe,
+    RecipeIngre,
+    ShoppingList,
+    Tags,
+    User,
+)
 
 
 def index(request):
@@ -31,8 +39,8 @@ def index(request):
 
 @login_required
 def new_recipe(request):
-    head_form = 'Создание рецепта'
-    text_btn_form = 'Создать рецепт'
+    head_form = "Создание рецепта"
+    text_btn_form = "Создать рецепт"
     tags = Tags.objects.all()
     if request.method == "POST":
         recipe_form = RecipeForm(request.POST or None, files=request.FILES or None)
@@ -54,7 +62,16 @@ def new_recipe(request):
         recipe_form = RecipeForm()
     else:
         recipe_form = RecipeForm()
-    return render(request, "form_recipe.html", {"form": recipe_form, "tags": tags, 'head_form':head_form, 'text_btn_form':text_btn_form})
+    return render(
+        request,
+        "form_recipe.html",
+        {
+            "form": recipe_form,
+            "tags": tags,
+            "head_form": head_form,
+            "text_btn_form": text_btn_form,
+        },
+    )
 
 
 @login_required
@@ -62,8 +79,8 @@ def recipe_edit(request, username, recipe_id):
     tags = Tags.objects.all()
     profile = get_object_or_404(User, username=username)
     recipe = get_object_or_404(Recipe, id=recipe_id, author=profile)
-    head_form = f'Редактирование рецепта ({recipe.title})'
-    text_btn_form = 'Сохранить изменения'
+    head_form = f"Редактирование рецепта ({recipe.title})"
+    text_btn_form = "Сохранить изменения"
     if request.user != recipe.author:
         return redirect("recipe", username=request.user.username, recipe_id=recipe_id)
     if request.method == "POST":
@@ -87,9 +104,17 @@ def recipe_edit(request, username, recipe_id):
     form = RecipeForm(
         request.POST or None, files=request.FILES or None, instance=recipe
     )
-    
+
     return render(
-        request, "form_recipe.html", {"form": form, "recipe": recipe, "tags": tags, 'head_form':head_form, 'text_btn_form':text_btn_form}
+        request,
+        "form_recipe.html",
+        {
+            "form": form,
+            "recipe": recipe,
+            "tags": tags,
+            "head_form": head_form,
+            "text_btn_form": text_btn_form,
+        },
     )
 
 
@@ -196,7 +221,9 @@ def favorite_index(request):
         following_recipe__user__id=request.user.id
     ).all()
     if tags_values:
-        following_list = following_list.filter(tag__title__in=tags_values).distinct().all()
+        following_list = (
+            following_list.filter(tag__title__in=tags_values).distinct().all()
+        )
     paginator = Paginator(following_list, 6)
     page_number = request.GET.get("page")
     page = paginator.get_page(page_number)
