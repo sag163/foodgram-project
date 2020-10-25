@@ -3,11 +3,6 @@ version: '3.8'
 volumes:
   postgres_data:
   staticfiles:
-
-    version: '3.8'
-volumes:
-  postgres_data:
-  staticfiles:
   mediafiles: 
 
 

@@ -1,13 +1,14 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import *
-from .models import *
 from django.core.paginator import Paginator
 from django.forms.models import modelformset_factory
 from django.forms import inlineformset_factory
 from django.forms.formsets import formset_factory
-from .additional_views import *
 from django.db.models import Sum
 from django.http import HttpResponse, JsonResponse
+
+from .forms import *
+from .models import *
+from .additional_views import *
 
 
 def index(request):
