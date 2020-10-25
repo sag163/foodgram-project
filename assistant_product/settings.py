@@ -27,8 +27,11 @@ SECRET_KEY = "ud_^@=l9s+rdz_$d=y%9bn!nl9*ui)*^_$71v$d&4_shwh32q0"
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "localhost",
-    "127.0.0.1",
+        "localhost",
+        "127.0.0.1",
+        "[::1]",
+        "testserver",
+        "*",
 ]
 
 INTERNAL_IPS = [
