@@ -21,10 +21,23 @@ PostgreSQL;
 Docker
 
 
-Инструкция по запуску проектаЖ
+Инструкция по запуску проекта:
 1. Склонируйте репозиторий себе на компьютер.
 
-2. Выполните команды:
+2. Получите у разработчика данные для настройки конфигурации
+ну а пока просто создайте в корне проекта файл .env со следующим содержимым:
+
+DB_NAME=postgres
+DB_USER=postgres
+DB_PASSWORD=postgres
+POSTGRES_PASSWORD=postgres
+DB_HOST=db
+DB_PORT=5432
+SECRET_KEY=ud_^@=l9s+rdz_$d=y%9bn!nl9*ui)*^_$71v$d&4_shwh32q0
+
+
+
+3. Выполните команды:
 
 docker-compose up --build
 
