@@ -35,18 +35,16 @@ DB_HOST=db
 DB_PORT=5432
 SECRET_KEY=ud_^@=l9s+rdz_$d=y%9bn!nl9*ui)*^_$71v$d&4_shwh32q0
 
-
-
 3. Выполните команды:
 
 docker-compose up --build
 
-docker-compose exec web python manage.py migrate
-
-docker-compose exec web python manage.py collectstatic
+docker-compose exec foodgram-project_web_1  python manage.py migrate
 
 при необходимости создайте пользователя superuser:
 
-docker exec -it foodgram_project_web_1 python manage.py createsuperuser
+docker exec -it foodgram_project_web python manage.py createsuperuser
+
+docker exec -it foodgram-project_web_1 python manage.py loaddata initial_data.json
 
 Все работает! Проект доступен по адресу http://127.0.0.1:4000/
