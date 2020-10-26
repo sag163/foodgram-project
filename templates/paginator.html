@@ -1,3 +1,4 @@
+{% if page %}
 <nav class="pagination" aria-label="Search results pages">
     <ul class="pagination__container">
         {% if items.has_previous %}
@@ -20,3 +21,4 @@
         {% endif %}
     </ul>
 </nav>
+{% endif%}
