@@ -21,7 +21,9 @@ services:
     command: gunicorn assistant_product.wsgi:application --bind 0.0.0.0:4000
     volumes:
       - staticfiles:/code/static/
-      - staticfiles:/code/media/
+      - mediafiles:/code/media/
+    ports:
+      - 4000:4000
     depends_on:
       - db
     env_file:
@@ -30,9 +32,9 @@ services:
   nginx:
     build: ./nginx
     volumes:
-      - staticfiles:/static
-      - mediafiles:/media
+      - staticfiles:/static/
+      - mediafiles:/media/
     ports:
-      - "4000:80"
+      - "400:80"
     depends_on:
       - web
