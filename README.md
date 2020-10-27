@@ -27,7 +27,7 @@ Docker
 2. Получите у разработчика данные для настройки конфигурации
 ну а пока просто создайте в корне проекта файл .env со следующим содержимым:
 
-DB_NAME=postgres
+DB_NAME=postgres /n
 DB_USER=postgres
 DB_PASSWORD=postgres
 POSTGRES_PASSWORD=postgres
@@ -39,7 +39,7 @@ SECRET_KEY=ud_^@=l9s+rdz_$d=y%9bn!nl9*ui)*^_$71v$d&4_shwh32q0
 
 docker-compose up --build
 
-docker-compose exec foodgram-project_web_1  python manage.py migrate
+docker exec foodgram-project_web_1 python manage.py migrate
 
 при необходимости создайте пользователя superuser:
 
