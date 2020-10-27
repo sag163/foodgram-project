@@ -27,7 +27,7 @@ Docker
 2. Получите у разработчика данные для настройки конфигурации
 ну а пока просто создайте в корне проекта файл .env со следующим содержимым:
 
-DB_NAME=postgres /n
+DB_NAME=postgres
 DB_USER=postgres
 DB_PASSWORD=postgres
 POSTGRES_PASSWORD=postgres
