@@ -27,6 +27,9 @@ from recipe.additional_views import get_ingredients
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("about/", include("django.contrib.flatpages.urls")),
+    path('about-food/', views.flatpage, {'url': '//about-food//'}, name='about'),
+    path('about-spec/', views.flatpage, {'url': '/about-spec/'}, name='about-spec'),
+    path('about-author/', views.flatpage, {'url':'/about-author/'}, name='about-author'),
     path("auth/", include("users.urls")),
     path("auth/", include("django.contrib.auth.urls")),
     path("ingredients/", additional_views.get_ingredients, name="ingredients"),
