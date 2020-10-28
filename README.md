@@ -48,4 +48,6 @@ docker-compose exec -it foodgram_project_web python manage.py createsuperuser
 
 docker-compose exec -it foodgram-project_web_1 python manage.py loaddata initial_data.json
 
-Все работает! Проект доступен по адресу http://127.0.0.1:4000/
+Все работает! Проект доступен по адресу http://127.0.0.1:400/
+
+А так же временно проект доступен по этому адресу: http://ya-food.tk/
