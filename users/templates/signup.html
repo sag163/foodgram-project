@@ -3,7 +3,7 @@
 {% block content %}
 {% load user_filters %}
 
-<main class="main container">
+<main class="main container"></main>
     <div class="main__header">
         <h1 class="main__title">Регистрация</h1>
     </div>
@@ -27,14 +27,13 @@
                                 </div>                
                         </div>
                     {% endfor %}
+                    <div class="form__footer">
+                        <button type="submit" class="button button_style_blue">Создать аккаунт</button>
+                    </div>
             </div>
-            <div class="form__footer">
-                <button class="button button_style_blue">Создать аккаунт</button>
-            </div>
+            
         </form>
     </div>
-
-
 </main>
 
 {% endblock %}

@@ -1,4 +1,5 @@
 .recipe__image {
+    object-fit: cover;
     width: 72px;
     height: 72px;
     grid-area: image;
