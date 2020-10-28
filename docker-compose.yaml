@@ -32,7 +32,7 @@ services:
   nginx:
     build: ./nginx
     volumes:
-      - staticfiles:/static/
+      - staticfiles:/code/static/
       - mediafiles:/media/
     ports:
       - "400:80"
