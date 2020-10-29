@@ -23,7 +23,9 @@
             <img src="{{ im.url }}" alt="{{ recipe.title }}" class="recipe__image">
 
             {% endthumbnail %} 
-            <a class="card__title link" href="{% url 'recipe' recipe.author.username recipe.id %}" target="_blank">{{ recipe.title }}</a>
+            <h3 class="recipe__title"><a href="{% url 'recipe' recipe.author.username recipe.id %}" class="nav__link link">{{ recipe.title}}</a></h3>
+
+                 
                         <p class="recipe__text"><span class="icon-time"></span> {{ recipe.time }} мин.</p>
                     </div>
                 </li>

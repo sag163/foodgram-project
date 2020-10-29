@@ -31,7 +31,7 @@
                         <li class="single-card__item"><p class="single-card__text"><span class="icon-user" ></span> {{ recipe.author }}</p></li>
                         {% if user == recipe.author %}
                         <li class="single-card__item">  <a style="margin-left: 2.5em" href="{% url 'recipe_edit' recipe.author.username recipe.id %}" class="single-card__text">Редактировать</a></li>
-                        <li class="single-card__item">  <a style="margin-left: 2.5em" href="{% url 'recipe_delete' recipe.author.username recipe.id %}" class="single-card__text">Удалить</a></li>
+                       
                         {% endif %}
                     </ul>
                 </div>

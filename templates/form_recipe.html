@@ -92,7 +92,12 @@
                 </div>
             </div>
             <div class="form__footer">
+                {% if request.resolver_match.url_name == 'new_recipe' %}
                 <button class="button button_style_blue">{{text_btn_form}}</button>
+                {% else %}
+                <button class="button button_style_blue">{{text_btn_form}}</button>
+                <a style="margin-left: 2.5em" href="{% url 'recipe_delete' recipe.id %}" class="form__ingredient-link">Удалить</a>
+                {% endif %}
             </div>
         </form>
     </div>
