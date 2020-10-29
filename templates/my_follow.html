@@ -23,7 +23,7 @@
             <img src="{{ im.url }}" alt="{{ recipe.title }}" class="recipe__image">
 
             {% endthumbnail %} 
-                        <h3 class="recipe__title">{{ recipe.title }}</h3>
+            <a class="card__title link" href="{% url 'recipe' recipe.author.username recipe.id %}" target="_blank">{{ recipe.title }}</a>
                         <p class="recipe__text"><span class="icon-time"></span> {{ recipe.time }} мин.</p>
                     </div>
                 </li>
