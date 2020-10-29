@@ -107,7 +107,7 @@ def recipe_edit(request, username, recipe_id):
 
     return render(
         request,
-        "form_recipe.html",
+        "recipe_change_form.html",
         {
             "form": form,
             "recipe": recipe,
