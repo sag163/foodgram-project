@@ -33,7 +33,7 @@ services:
     build: ./nginx
     volumes:
       - staticfiles:/code/static/
-      - mediafiles:/media/
+      - mediafiles:/code/media/
     ports:
       - "400:80"
     depends_on:
