@@ -7,6 +7,7 @@
 {% block content %}
 {% load user_filters %}
 <link rel="stylesheet" href="{% static 'pages/form.css' %}">
+<main class="main container">
     <div class="main__header">
         <h1 class="main__title">Редактирование рецепта</h1>
     </div>
@@ -49,7 +50,7 @@
                             <div class="form__dropdown-items"></div>
                         </div>
                         <input type="number" id="cantidad" class="form__input" min="0">
-                        <label for="cantidad" class="form__label" id="cantidadVal">шт.</label>
+                        <label for="cantidad" class="form__label" id="cantidadVal"></label>
                     </div>
                     <div class="form__field-group-ingredientes-container"></div>
                     <span class="form__ingredient-link" id="addIng">Добавить ингредиент</span>
@@ -96,6 +97,7 @@
             </div>
         </form>
     </div>
+</main>
     {% block scripts %}
         <script src="{% static 'js/config/config.js' %}"></script>
         <script src="{% static 'js/components/Header.js' %}"></script>

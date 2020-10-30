@@ -37,7 +37,7 @@ SECRET_KEY=ud_^@=l9s+rdz_$d=y%9bn!nl9*ui)*^_$71v$d&4_shwh32q0
 
 3. Выполните команды:
 
-docker-compose up --build
+docker-compose up --build -d
 
 
 docker-compose exec web python manage.py migrate
