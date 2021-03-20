@@ -2,7 +2,7 @@ django==3.0.5
 pillow==7.2.0
 sorl-thumbnail==12.6.3
 asgiref==3.2.10
-djangorestframework==3.11.0
+djangorestframework==3.11.2
 djangorestframework-simplejwt==4.3.0
 gunicorn==20.0.4
 psycopg2-binary==2.8.5
